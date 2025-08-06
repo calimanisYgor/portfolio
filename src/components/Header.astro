@@ -1,0 +1,36 @@
+---
+// Astro file
+import { Icon } from "astro-icon/components";
+import Clock from "./react/Clock";
+import "../../src/styles/global.css";
+---
+
+<header
+  class="px-5 py-5 flex justify-between fixed top-0 left-0 w-full z-50 xl:bg-transparent"
+>
+  <!-- Theme Toggle -->
+  <div class="h-7 w-7 grid place-items-center">
+    <button
+      type="button"
+      aria-label="Toggle Theme"
+      class="relative h-7 w-7 flex items-center justify-center rounded-md border border-primary bg-background text-primary transition-colors hover:bg-accent"
+      onclick="document.documentElement.classList.toggle('dark')"
+    >
+      <Icon name="mdi:moon-and-stars" class="hidden dark:inline" />
+      <Icon name="mdi:white-balance-sunny" class="inline dark:hidden" />
+    </button>
+  </div>
+
+  <!-- Location and Clock -->
+  <div class="flex gap-2">
+    <div class="flex items-center gap-1 rounded-md border px-2 py-1 text-xs text-muted-foreground bg-background">
+      <Icon class="opacity-70" size={14} name="mdi:map-marker-outline" />
+      SÃO PAULO
+    </div>
+
+    <div class="flex items-center gap-1 rounded-md border px-2 py-1 text-xs text-muted-foreground bg-background">
+      <Icon class="opacity-70" size={14} name="mdi:clock-outline" />
+      <Clock client:load />
+    </div>
+  </div>
+</header>
