@@ -25,7 +25,7 @@ export default function ProjectsCarousel() {
         <img src="/public/projects/tarnished-ai.jpg" />
         <div className="text-center bg-base-100 p-5">
           <h3 className="text-xl">The Tarnished AI</h3>
-          <p className="opacity-70 mt-3 text-sm">
+          <p className="opacity-70 mt-3 text-sm ">
             The Tarnished AI é uma aplicação web que utiliza inteligência
             artificial para auxiliar jogadores na criação de builds
             personalizadas em jogos do gênero Soulslike. O sistema permite ao
