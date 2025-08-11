@@ -22,7 +22,7 @@ export default function ProjectsCarousel() {
       className="rounded-lg"
     >
       <SwiperSlide>
-        <img src="/public/projects/tarnished-ai.jpg" />
+        <img src="/portfolio/projects/tarnished-ai.jpg" />
         <div className="text-center bg-base-100 p-5">
           <h3 className="text-xl">The Tarnished AI</h3>
           <p className="opacity-70 mt-3 text-sm ">
@@ -51,7 +51,7 @@ export default function ProjectsCarousel() {
       </SwiperSlide>
 
       {/* <SwiperSlide>
-        <img src="/public/projects/tarnished-ai.jpg" />
+        <img src="/portfolio/projects/tarnished-ai.jpg" />
         <div className="text-center bg-base-100 p-5">
           <h3 className="text-xl">Website / Landing Page</h3>
           <p className="opacity-70 mt-3 text-sm">
@@ -80,7 +80,7 @@ export default function ProjectsCarousel() {
       </SwiperSlide>
 
       <SwiperSlide>
-        <img src="/public/projects/tarnished-ai.jpg" />
+        <img src="/portfolio/projects/tarnished-ai.jpg" />
         <div className="text-center bg-base-100 p-5">
           <h3 className="text-xl">Immersive Fashion Brand Website</h3>
           <p className="opacity-70 mt-3 text-sm">
