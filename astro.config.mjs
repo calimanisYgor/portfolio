@@ -13,4 +13,6 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   integrations: [react(), icon()],
+  site: 'https://ygorcalimanis.github.io',
+  base: '/portfolio'
 });
