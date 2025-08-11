@@ -40,7 +40,7 @@ export default function ProjectsCarousel() {
                 key={t}
                 src={
                   t === "gemini"
-                    ? "/public/icons/gemini.svg"
+                    ? "/portfolio/icons/gemini.svg"
                     : `https://skillicons.dev/icons?i=${t}`
                 }
                 alt={t}
