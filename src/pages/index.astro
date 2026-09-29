@@ -5,6 +5,7 @@ import Banner from "../components/Banner.astro";
 import Expertises from "../components/Expertises.astro";
 import ProjectsCarousel from "../components/react/ProjectsCarousel";
 import Experience from "../components/Experience.astro";
+import Education from "../components/Education.astro";
 import { Icon } from "astro-icon/components";
 import { Badge } from "@/components/ui/badge";
 ---
@@ -18,6 +19,14 @@ import { Badge } from "@/components/ui/badge";
       <Badge variant="outline" className="text-xs"> EXPERIÊNCIA </Badge>
       <div class="mt-6">
         <Experience />
+      </div>
+    </section>
+
+    <!-- Formação -->
+    <section class="mt-16">
+      <Badge variant="outline" className="text-xs"> FORMAÇÃO </Badge>
+      <div class="mt-6">
+        <Education />
       </div>
     </section>
 
@@ -60,7 +69,7 @@ import { Badge } from "@/components/ui/badge";
       </div>
     </section>
 
-    <div class="divider mt-16"></div>
+    <div class="mt-16 border-t border-border"></div>
 
     <!-- About -->
     <section class="mt-32">
@@ -69,16 +78,17 @@ import { Badge } from "@/components/ui/badge";
       </Badge>
       <div class="mt-6 text-center">
         <p class="opacity-70 text-sm">
-          Desenvolvedor Full Stack, entusiasta de tecnologia e movido pela busca
+          Desenvolvedor Full Stack com mais de 4 anos de experiência em
+          aplicações web, entusiasta de tecnologia e movido pela busca
           constante de inovação. <br> Ao longo da minha trajetória, desenvolvi
-          websites otimizados e responsivos e participei da criação de soluções
-          internas e externas para o setor corporativo, incluindo construção de
-          APIs, integração de sistemas e desenvolvimento de interfaces de alto
-          desempenho. Trabalho com tecnologias como React, JavaScript,
-          TypeScript, Docker, PHP, Laravel, Python, Node.js, PostgreSQL e MySQL.
+          websites otimizados e responsivos, construí APIs e integrações entre
+          sistemas e, mais recentemente, atuei no mercado de FIDCs
+          desenvolvendo motores de análise de risco e automações. Trabalho com
+          tecnologias como React, JavaScript, TypeScript, Docker, PHP,
+          Laravel, Python, Node.js, PostgreSQL e MySQL.
         </p>
       </div>
-      <div class="mt-6 grid grid-cols-2 xs:grid-cols-3 gap-6">
+      <div class="mt-6 grid grid-cols-2 sm:grid-cols-5 gap-6">
         <a
           href="https://github.com/calimanisYgor"
           target="_blank"
@@ -95,12 +105,27 @@ import { Badge } from "@/components/ui/badge";
           <span class="text-xs">business@calimanis.com</span>
         </a>
         <a
-          href="www.linkedin.com/in/ygorcalimanis"
+          href="tel:+5511999012003"
+          class="flex flex-col items-center gap-2"
+        >
+          <Icon class={"text-accent"} size={32} name="mdi:phone" />
+          <span class="text-xs">(11) 99901-2003</span>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/ygorcalimanis"
           target="_blank"
           class="flex flex-col items-center gap-2"
         >
           <Icon class={"text-accent"} size={32} name="mdi:linkedin" />
           <span class="text-xs">/ygorcalimanis</span>
+        </a>
+        <a
+          href="/portfolio/docs/curriculo-ygor-calimanis.pdf"
+          download
+          class="flex flex-col items-center gap-2"
+        >
+          <Icon class={"text-accent"} size={32} name="mdi:download" />
+          <span class="text-xs">Currículo</span>
         </a>
       </div>
     </section>

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:is([data-theme="dark"] *));
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -44,77 +44,100 @@
 :root {
   --radius: 0.625rem;
 
-  --background: oklch(0.97 0.015 270); /* fundo lavanda fria */
-  --foreground: oklch(0.95 0.02 270); /* texto claro lavanda fria */
+  /* Paleta base (design tokens) */
+  --midnight: #0f172a;
+  --slate: #334155;
+  --ice: #f8fafc;
+  --steel-blue: #3b82f6;
+  --light-gray: #e2e8f0;
 
+  /* Tokens semânticos — tema claro (padrão) */
+  --bg: var(--ice);
+  --surface: #ffffff;
+  --text: var(--midnight);
+  --text-muted: var(--slate);
+  --border: var(--light-gray);
+  /* --steel-blue puro (#3B82F6) rende ~3.5:1 sobre --ice como texto — abaixo do
+     mínimo AA (4.5:1). Escurecido para #2563EB (mesma família azul) para
+     passar em contraste de texto/links mantendo a identidade visual. */
+  --accent: #2563eb;
+  --accent-foreground: var(--ice);
 
-  --card: oklch(0.98 0.01 270);
-  --card-foreground: oklch(0.15 0.02 270);
+  /* Ponte para os tokens consumidos pelos componentes (shadcn/tailwind) */
+  --background: var(--bg);
+  --foreground: var(--text);
+  --card: var(--surface);
+  --card-foreground: var(--text);
+  --popover: var(--surface);
+  --popover-foreground: var(--text);
+  --primary: var(--midnight);
+  --primary-foreground: var(--ice);
+  --secondary: var(--light-gray);
+  --secondary-foreground: var(--midnight);
+  --muted: var(--light-gray);
+  --muted-foreground: var(--text-muted);
+  --destructive: #dc2626;
+  --input: var(--light-gray);
+  --ring: var(--accent);
 
-  --popover: oklch(0.98 0.01 270);
-  --popover-foreground: oklch(0.15 0.02 270);
+  --chart-1: var(--accent);
+  --chart-2: var(--slate);
+  --chart-3: var(--midnight);
+  --chart-4: var(--light-gray);
+  --chart-5: var(--accent);
 
-  --primary: oklch(0.45 0.09 265); /* roxo-azulado médio */
-  --primary-foreground: oklch(0.98 0.015 270);
-
-  --secondary: oklch(0.4 0.08 275); /* lavanda escura */
-  --secondary-foreground: oklch(0.15 0.03 270);
-
-  --tertiary: oklch(0.4 0.08 275); /* lavanda escura */
-  --tertiary-foreground: oklch(0.15 0.03 270);
-
-  --accent: oklch(0.85 0.08 275); /* azul lavanda claro */
-  --accent-foreground: oklch(0.15 0.02 270);
-
-  --muted: oklch(0.9 0.01 270);
-  --muted-foreground: oklch(0.45 0.03 270);
-
-  --destructive: oklch(0.6 0.18 30); /* vermelho suave */
-
-  --border: oklch(0.88 0.01 270);
-  --input: oklch(0.88 0.01 270);
-  --ring: oklch(0.5 0.08 265);
-
-  --chart-1: oklch(0.5 0.1 265);
-  --chart-2: oklch(0.6 0.12 270);
-  --chart-3: oklch(0.7 0.15 275);
-  --chart-4: oklch(0.75 0.08 260); /* azul violáceo */
-  --chart-5: oklch(0.65 0.1 268);
+  --sidebar: var(--surface);
+  --sidebar-foreground: var(--text);
+  --sidebar-primary: var(--midnight);
+  --sidebar-primary-foreground: var(--ice);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--ice);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--accent);
 }
 
-.light {
-  --background: oklch(0.15 0.04 270); /* roxo azulado profundo */
-  --foreground: oklch(0.95 0.02 270); /* texto claro lavanda fria */
+[data-theme="dark"] {
+  --bg: var(--midnight);
+  --surface: var(--slate);
+  --text: var(--ice);
+  /* --slate puro sobre --midnight rende ~1.7:1 — usado só como superfície aqui.
+     Para texto secundário em fundo escuro usamos um tom mais claro da família
+     slate (#CBD5E1) que passa 4.5:1 tanto sobre --midnight quanto --slate. */
+  --text-muted: #cbd5e1;
+  --border: #64748b;
+  --accent: var(--steel-blue);
+  --accent-foreground: var(--midnight);
 
-  --card: oklch(0.22 0.05 270);
-  --card-foreground: oklch(0.95 0.02 270);
+  --background: var(--bg);
+  --foreground: var(--text);
+  --card: var(--surface);
+  --card-foreground: var(--text);
+  --popover: var(--surface);
+  --popover-foreground: var(--text);
+  --primary: var(--ice);
+  --primary-foreground: var(--midnight);
+  --secondary: var(--slate);
+  --secondary-foreground: var(--ice);
+  --muted: var(--slate);
+  --muted-foreground: var(--text-muted);
+  --destructive: #dc2626;
+  --input: var(--border);
+  --ring: var(--accent);
 
-  --popover: oklch(0.25 0.04 270);
-  --popover-foreground: oklch(0.95 0.02 270);
+  --chart-1: var(--accent);
+  --chart-2: var(--text-muted);
+  --chart-3: var(--ice);
+  --chart-4: var(--border);
+  --chart-5: var(--accent);
 
-  --primary: oklch(0.58 0.12 265); /* roxo-azulado vibrante */
-  --primary-foreground: oklch(0.15 0.04 270);
-
-  --secondary: oklch(0.7 0.08 275); /* lavanda escura */
-  --secondary-foreground: oklch(0.15 0.03 270);
-
-  --accent: oklch(0.75 0.1 280); /* azul lavanda médio */
-  --accent-foreground: oklch(0.15 0.03 270);
-
-  --muted: oklch(0.3 0.02 270);
-  --muted-foreground: oklch(0.65 0.05 270);
-
-  --destructive: oklch(0.55 0.2 30);
-
-  --border: oklch(1 0.01 270 / 10%);
-  --input: oklch(1 0.01 270 / 15%);
-  --ring: oklch(0.5 0.08 265);
-
-  --chart-1: oklch(0.6 0.12 265);
-  --chart-2: oklch(0.7 0.15 270);
-  --chart-3: oklch(0.75 0.17 275);
-  --chart-4: oklch(0.65 0.1 260);
-  --chart-5: oklch(0.6 0.1 268);
+  --sidebar: var(--surface);
+  --sidebar-foreground: var(--text);
+  --sidebar-primary: var(--ice);
+  --sidebar-primary-foreground: var(--midnight);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--midnight);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--accent);
 }
 
 @layer base {
@@ -124,4 +147,57 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    transition-property: background-color, border-color, color;
+    transition-duration: 200ms;
+    transition-timing-function: ease;
+  }
+}
+
+/* Tooltip acessível e leve (substitui o componente do daisyUI, que exigiria
+   data-theme="sunset"/"winter" e colidiria com o data-theme usado pelo tema). */
+.tech-tooltip {
+  position: relative;
+}
+
+.tech-tooltip::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 2px 8px;
+  border-radius: calc(var(--radius) - 4px);
+  font-size: 11px;
+  line-height: 1.4;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.tech-tooltip:hover::after,
+.tech-tooltip:focus-visible::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Ícone sol/lua do botão de tema */
+.theme-icon-dark {
+  display: none;
+}
+
+[data-theme="dark"] .theme-icon-light {
+  display: none;
+}
+
+[data-theme="dark"] .theme-icon-dark {
+  display: inline;
 }
