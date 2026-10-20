@@ -1,63 +1,53 @@
-<h3 class="text-xl mb-6">Front-end</h3>
-<div class="grid grid-cols-6 gap-3 sm:grid-cols-10 sm:gap-6">
-    {
-        [
-            "react",
-            "ts",
-            "js",
-            "html",
-            "css",
-            "bootstrap",
-        ].map((t) => (
-            <div
-                class="tech-tooltip pb-2"
-                tabindex="0"
-                data-tip={t}
-                title={t}
-            >
-                <img src={`https://skillicons.dev/icons?i=${t}`} alt={t} />
-            </div>
-        ))
-    }
-</div>
+---
+const groups = [
+  {
+    title: "Frontend",
+    items: ["React", "TypeScript", "JavaScript", "HTML", "CSS", "Bootstrap"],
+  },
+  {
+    title: "Backend",
+    items: ["Node.js", "PHP", "Laravel", "Python"],
+  },
+  {
+    title: "Bancos de dados",
+    items: ["PostgreSQL", "MySQL"],
+  },
+  {
+    title: "APIs e integrações",
+    items: ["APIs", "Integrações entre sistemas"],
+  },
+  {
+    title: "Ferramentas e infraestrutura",
+    items: ["Docker", "Claude Code", "Cursor"],
+  },
+];
+---
 
-<h3 class="text-xl mt-6 mb-6">Back-end</h3>
-<div class="grid grid-cols-6 gap-3 sm:grid-cols-10 sm:gap-6">
-    {
-        [
-            "nodejs",
-            "php",
-            "laravel",
-            "python",
-        ].map((t) => (
-            <div
-                class="tech-tooltip pb-2"
-                tabindex="0"
-                data-tip={t}
-                title={t}
-            >
-                <img src={`https://skillicons.dev/icons?i=${t}`} alt={t} />
-            </div>
-        ))
-    }
-</div>
+<section id="competencias" class="scroll-mt-24">
+  <div class="reveal">
+    <p class="text-xs uppercase tracking-[0.22em] text-muted-foreground">05 — Competências</p>
+    <h2 class="mt-3 font-display text-3xl font-medium tracking-tight md:text-4xl">
+      Stack com propósito
+    </h2>
+    <p class="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+      Tecnologias que já fazem parte do meu dia a dia, agrupadas pela função que desempenham — não por uma lista genérica de logos.
+    </p>
+  </div>
 
-<h3 class="text-xl mt-6 mb-6">Bancos de dados & DevOps</h3>
-<div class="grid grid-cols-6 gap-3 sm:grid-cols-10 sm:gap-6">
+  <div class="mt-10 grid gap-6 md:grid-cols-2">
     {
-        [
-            "postgresql",
-            "mysql",
-            "docker",
-        ].map((t) => (
-            <div
-                class="tech-tooltip pb-2"
-                tabindex="0"
-                data-tip={t}
-                title={t}
-            >
-                <img src={`https://skillicons.dev/icons?i=${t}`} alt={t} />
-            </div>
-        ))
+      groups.map((group) => (
+        <div class="reveal rounded-2xl border border-border bg-card/50 p-6">
+          <h3 class="font-display text-xl">{group.title}</h3>
+          <ul class="mt-4 flex flex-wrap gap-2">
+            {group.items.map((item) => (
+              <li class="rounded-full border border-border px-3 py-1.5 text-sm text-muted-foreground">
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
     }
-</div>
+  </div>
+</section>

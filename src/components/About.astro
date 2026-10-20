@@ -1,0 +1,43 @@
+---
+import Education from "./Education.astro";
+import { withBase } from "@/lib/utils";
+---
+
+<section id="sobre" class="scroll-mt-24">
+  <div class="reveal grid items-start gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+    <div class="relative overflow-hidden rounded-2xl border border-border bg-card/60 p-3">
+      <img
+        src={withBase("profile.jpg")}
+        alt="Retrato de Ygor Calimanis"
+        class="aspect-[4/5] w-full rounded-xl object-cover"
+        width="640"
+        height="800"
+      />
+    </div>
+
+    <div>
+      <p class="text-xs uppercase tracking-[0.22em] text-muted-foreground">03 — Sobre mim</p>
+      <h2 class="mt-3 font-display text-3xl font-medium tracking-tight md:text-4xl">
+        Do problema à solução, nos dois lados da aplicação
+      </h2>
+      <div class="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground">
+        <p>
+          Sou desenvolvedor Full Stack com mais de quatro anos de experiência em aplicações web. O que me move é entender o contexto — o processo, a restrição, a regra de negócio — e transformar isso em software que as pessoas realmente usam.
+        </p>
+        <p>
+          Ao longo da trajetória, desenvolvi websites otimizados e responsivos, construí APIs e integrações entre sistemas e, mais recentemente, atuei no mercado de FIDCs desenvolvendo motores de análise de risco e automações. Trabalho com a mesma atenção no frontend e no backend: interface clara, dados consistentes e manutenção evolutiva.
+        </p>
+        <p>
+          Entusiasta de tecnologia, sigo buscando formas mais precisas de construir. O interesse não está em acumular ferramentas, e sim em escolher as que sustentam o produto no tempo.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal mt-12">
+    <h3 class="font-display text-2xl">Formação</h3>
+    <div class="mt-6">
+      <Education />
+    </div>
+  </div>
+</section>

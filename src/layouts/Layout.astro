@@ -1,32 +1,79 @@
 ---
 import "../styles/global.css";
+import SiteGrid from "../components/SiteGrid.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Ygor Calimanis — Desenvolvedor Full Stack",
+  description = "Portfólio de Ygor Calimanis, desenvolvedor Full Stack com experiência em aplicações web, APIs e integrações.",
+} = Astro.props;
+
 ---
 
 <!doctype html>
 <html lang="pt-BR">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Ygor Calimanis - Full Stack Developer</title>
-		<link rel="shortcut icon" href="/portfolio/profile.jpg" type="image/jpeg">
-		<script is:inline>
-			(function () {
-				var stored = localStorage.getItem("theme");
-				var theme =
-					stored || (window.matchMedia("(prefers-color-scheme: dark)").matches
-						? "dark"
-						: "light");
-				document.documentElement.setAttribute("data-theme", theme);
-			})();
-		</script>
-	</head>
-	<body class="bg-background pt-32">
-		<slot />
-		<section class="mt-32 pb-6 text-center">
-			<p class="opacity-70 text-xs">
-				Copyright &copy; 2026 Ygor Calimanis. All rights reserved.
-			</p>
-		</section>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="shortcut icon" href={`/portfolio/profile.jpg`} type="image/jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline>
+      (function () {
+        var stored = localStorage.getItem("theme");
+        var theme = stored || "dark";
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <SiteGrid />
+    <div class="page-shell">
+      <slot />
+      <footer class="border-t border-border/70 px-5 py-8 text-center">
+        <p class="text-xs text-muted-foreground">
+          Copyright &copy; 2026 Ygor Calimanis. All rights reserved.
+        </p>
+      </footer>
+    </div>
+    <script>
+      const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+      function reveal() {
+        const nodes = document.querySelectorAll(".reveal");
+        if (motionQuery.matches) {
+          nodes.forEach((node) => node.classList.add("is-visible"));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+        );
+
+        nodes.forEach((node) => observer.observe(node));
+      }
+
+      reveal();
+    </script>
+  </body>
 </html>

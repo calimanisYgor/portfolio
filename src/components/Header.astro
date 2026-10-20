@@ -1,63 +1,180 @@
 ---
-// Astro file
 import { Icon } from "astro-icon/components";
 import Clock from "./react/Clock";
-import "../../src/styles/global.css";
+
+const links = [
+  { href: "#inicio", label: "Início" },
+  { href: "#projetos", label: "Projetos" },
+  { href: "#sobre", label: "Sobre" },
+  { href: "#experiencia", label: "Experiência" },
+  { href: "#competencias", label: "Competências" },
+  { href: "#contato", label: "Contato" },
+];
 ---
 
 <header
-  class="px-5 py-5 flex justify-between fixed top-0 left-0 w-full z-50 xl:bg-transparent"
+  class="fixed top-0 left-0 z-50 w-full border-b border-border/60 bg-background/92 backdrop-blur-xl"
 >
-  <!-- Theme Toggle -->
-  <div class="h-7 w-7 grid place-items-center">
-    <button
-      id="theme-toggle"
-      type="button"
-      aria-label="Alternar para tema escuro"
-      aria-pressed="false"
-      class="relative h-7 w-7 flex items-center justify-center rounded-md border border-primary bg-background text-primary hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-    >
-      <Icon name="mdi:moon-and-stars" class="theme-icon-dark" />
-      <Icon name="mdi:white-balance-sunny" class="theme-icon-light" />
-    </button>
-  </div>
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
+    <a href="#inicio" class="min-w-0 truncate font-display text-base tracking-tight sm:text-lg">
+      Ygor Calimanis
+    </a>
 
-  <script is:inline>
-    (function () {
-      var btn = document.getElementById("theme-toggle");
-      if (!btn) return;
-
-      function sync() {
-        var isDark = document.documentElement.getAttribute("data-theme") === "dark";
-        btn.setAttribute("aria-pressed", String(isDark));
-        btn.setAttribute(
-          "aria-label",
-          isDark ? "Alternar para tema claro" : "Alternar para tema escuro"
-        );
+    <nav class="hidden items-center gap-5 lg:flex" aria-label="Seções">
+      {
+        links.map((link) => (
+          <a class="nav-link" href={link.href} data-nav-link>
+            {link.label}
+          </a>
+        ))
       }
+    </nav>
 
-      sync();
+    <div class="flex items-center gap-2">
+      <div class="hidden items-center gap-2 sm:flex">
+        <div
+          class="flex items-center gap-1 rounded-md border border-border bg-background/70 px-2 py-1 text-xs text-muted-foreground"
+        >
+          <Icon class="opacity-70" size={14} name="mdi:map-marker-outline" />
+          São Paulo
+        </div>
+        <div
+          class="flex items-center gap-1 rounded-md border border-border bg-background/70 px-2 py-1 text-xs text-muted-foreground"
+        >
+          <Icon class="opacity-70" size={14} name="mdi:clock-outline" />
+          <Clock client:load />
+        </div>
+      </div>
 
-      btn.addEventListener("click", function () {
-        var isDark = document.documentElement.getAttribute("data-theme") === "dark";
-        var next = isDark ? "light" : "dark";
-        document.documentElement.setAttribute("data-theme", next);
-        localStorage.setItem("theme", next);
-        sync();
-      });
-    })();
-  </script>
+      <button
+        id="theme-toggle"
+        type="button"
+        aria-label="Alternar para tema escuro"
+        aria-pressed="false"
+        class="grid h-9 w-9 place-items-center rounded-md border border-border bg-background text-foreground hover:border-accent hover:text-accent-link"
+      >
+        <Icon name="mdi:moon-and-stars" class="theme-icon-dark" />
+        <Icon name="mdi:white-balance-sunny" class="theme-icon-light" />
+      </button>
 
-  <!-- Location and Clock -->
-  <div class="flex gap-2">
-    <div class="flex items-center gap-1 rounded-md border px-2 py-1 text-xs text-muted-foreground bg-background">
-      <Icon class="opacity-70" size={14} name="mdi:map-marker-outline" />
-      SÃO PAULO
-    </div>
-
-    <div class="flex items-center gap-1 rounded-md border px-2 py-1 text-xs text-muted-foreground bg-background">
-      <Icon class="opacity-70" size={14} name="mdi:clock-outline" />
-      <Clock client:load />
+      <button
+        id="menu-toggle"
+        type="button"
+        class="grid h-9 w-9 place-items-center rounded-md border border-border lg:hidden"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        aria-label="Abrir menu"
+      >
+        <Icon id="menu-icon-open" name="mdi:menu" />
+        <Icon id="menu-icon-close" name="mdi:close" class="hidden" />
+      </button>
     </div>
   </div>
+
+  <nav
+    id="mobile-nav"
+    class="hidden border-t border-border bg-background px-5 py-4 lg:hidden"
+    aria-label="Seções"
+  >
+    <ul class="flex flex-col gap-3">
+      {
+        links.map((link) => (
+          <li>
+            <a class="nav-link block py-1" href={link.href} data-nav-link>
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
 </header>
+
+<script is:inline>
+  (function () {
+    var btn = document.getElementById("theme-toggle");
+    if (!btn) return;
+
+    function sync() {
+      var isDark =
+        document.documentElement.getAttribute("data-theme") === "dark";
+      btn.setAttribute("aria-pressed", String(isDark));
+      btn.setAttribute(
+        "aria-label",
+        isDark ? "Alternar para tema claro" : "Alternar para tema escuro",
+      );
+    }
+
+    sync();
+
+    btn.addEventListener("click", function () {
+      var isDark =
+        document.documentElement.getAttribute("data-theme") === "dark";
+      var next = isDark ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+      sync();
+    });
+  })();
+</script>
+
+<script>
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileNav = document.getElementById("mobile-nav");
+  const iconOpen = document.getElementById("menu-icon-open");
+  const iconClose = document.getElementById("menu-icon-close");
+  const navLinks = document.querySelectorAll("[data-nav-link]");
+  const sectionIds = [
+    "inicio",
+    "projetos",
+    "sobre",
+    "experiencia",
+    "competencias",
+    "contato",
+  ];
+
+  function setMenu(open: boolean) {
+    if (!menuToggle || !mobileNav || !iconOpen || !iconClose) return;
+    mobileNav.classList.toggle("hidden", !open);
+    iconOpen.classList.toggle("hidden", open);
+    iconClose.classList.toggle("hidden", !open);
+    menuToggle.setAttribute("aria-expanded", String(open));
+    menuToggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+  }
+
+  menuToggle?.addEventListener("click", () => {
+    const open = menuToggle.getAttribute("aria-expanded") !== "true";
+    setMenu(open);
+  });
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => setMenu(false));
+  });
+
+  const sections = sectionIds
+    .map((id) => document.getElementById(id))
+    .filter((section): section is HTMLElement => Boolean(section));
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (!visible?.target.id) return;
+
+      navLinks.forEach((link) => {
+        const href = link.getAttribute("href");
+        const current = href === `#${visible.target.id}`;
+        if (current) {
+          link.setAttribute("aria-current", "true");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+    },
+    { rootMargin: "-35% 0px -55% 0px", threshold: [0.15, 0.35, 0.6] },
+  );
+
+  sections.forEach((section) => observer.observe(section));
+</script>
