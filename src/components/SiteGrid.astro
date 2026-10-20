@@ -1,0 +1,43 @@
+---
+---
+
+<div class="site-grid" aria-hidden="true">
+  <div class="site-grid__base"></div>
+  <div class="site-grid__glow"></div>
+  <div class="site-grid__spotlight"></div>
+</div>
+
+<script>
+  const root = document.documentElement;
+  const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const hoverQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+  let frame = 0;
+
+  function canTrack() {
+    return !motionQuery.matches && hoverQuery.matches;
+  }
+
+  function syncMode() {
+    if (canTrack()) {
+      root.setAttribute("data-grid-interactive", "true");
+    } else {
+      root.removeAttribute("data-grid-interactive");
+    }
+  }
+
+  function onPointerMove(event: PointerEvent) {
+    if (!canTrack()) return;
+    if (frame) return;
+
+    frame = window.requestAnimationFrame(() => {
+      root.style.setProperty("--mx", `${event.clientX}px`);
+      root.style.setProperty("--my", `${event.clientY}px`);
+      frame = 0;
+    });
+  }
+
+  syncMode();
+  window.addEventListener("pointermove", onPointerMove, { passive: true });
+  motionQuery.addEventListener("change", syncMode);
+  hoverQuery.addEventListener("change", syncMode);
+</script>

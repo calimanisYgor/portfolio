@@ -1,76 +1,109 @@
 ---
+const roles = [
+  {
+    title: "Analista Programador de Sistemas II",
+    company: "Liberum Ratings",
+    period: "2025 — 2026",
+    points: [
+      "Desenvolvimento e otimização de motores de análise com IA para identificação de processos de recuperação judicial, aprimorando a eficiência e a confiabilidade das análises de risco de FIDCs.",
+      "Refatoração e modernização do front-end, com padronização e unificação de componentes reutilizáveis, melhorando a manutenibilidade, a consistência e a escalabilidade da aplicação.",
+      "Desenvolvimento de novas funcionalidades e melhorias técnicas alinhadas às necessidades do negócio, contribuindo para a evolução dos sistemas internos.",
+      "Integração de ferramentas de IA ao fluxo diário de desenvolvimento, apoiando a implementação de funcionalidades, a análise de código e a produtividade da equipe.",
+    ],
+    stack: [
+      "Node.js",
+      "React",
+      "TypeScript",
+      "Python",
+      "PostgreSQL",
+      "Docker",
+      "Linux",
+      "Inteligência Artificial",
+      "Análise de risco",
+    ],
+  },
+  {
+    title: "Desenvolvedor Full Stack Pleno",
+    company: "Allcom Telecom",
+    period: "2024 — 2025",
+    points: [
+      "Desenvolvimento e manutenção de soluções internas e externas, com foco em boas práticas de engenharia de software, qualidade de código e manutenibilidade.",
+      "Construção de APIs e integração entre sistemas utilizando PHP, Laravel, Node.js e bancos de dados relacionais, como PostgreSQL e MySQL.",
+      "Desenvolvimento de interfaces responsivas com React e TypeScript, priorizando reutilização de componentes, consistência e experiência do usuário.",
+      "Atuação na equipe de Pesquisa e Desenvolvimento, contribuindo para a evolução de sistemas, implementação de funcionalidades e melhoria contínua das soluções.",
+    ],
+    stack: [
+      "PHP",
+      "Laravel",
+      "Node.js",
+      "React",
+      "TypeScript",
+      "Python",
+      "PostgreSQL",
+      "MySQL",
+      "Docker",
+    ],
+  },
+  {
+    title: "Desenvolvedor Front-end Júnior",
+    company: "Agência Alldigital",
+    period: "2022 — 2024",
+    points: [
+      "Desenvolvimento de websites e páginas web responsivas utilizando HTML5, CSS3, JavaScript e Bootstrap, adaptando interfaces a diferentes dispositivos e resoluções.",
+      "Implementação de layouts modernos e funcionais, garantindo compatibilidade entre navegadores e consistência visual.",
+      "Aplicação de boas práticas de desenvolvimento front-end, com foco em desempenho, acessibilidade e usabilidade.",
+      "Colaboração na criação e evolução de soluções web para diferentes projetos e necessidades de clientes.",
+    ],
+    stack: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
+  },
+];
 ---
 
-<div class="p-5 bg-secondary rounded-xl relative">
-  <div class="flex justify-between">
-    <div class="grow">
-      <h3 class="text-xl">Analista Programador de Sistemas II</h3>
-      <h4 class="opacity-60 text-xs">Liberum Ratings</h4>
-    </div>
-    <div class="text-xs">2025 ——— 2026</div>
+<section id="experiencia" class="scroll-mt-24">
+  <div class="reveal">
+    <p class="text-xs uppercase tracking-[0.22em] text-muted-foreground">
+      04 — Experiência
+    </p>
+    <h2
+      class="mt-3 font-display text-3xl font-medium tracking-tight md:text-4xl"
+    >
+      Onde o trabalho aconteceu
+    </h2>
+    <p class="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+      Da interface ao motor de análise: cada posição abaixo mostra o tipo de
+      problema que assumi e as tecnologias que sustentaram a entrega.
+    </p>
   </div>
-  <ul class="opacity-70 mt-3 text-sm list-disc list-inside space-y-1">
-    <li>
-      Desenvolvimento e otimização de motores de análise para identificação
-      de processos de recuperação judicial, tornando a análise de risco
-      mais eficiente.
-    </li>
-    <li>
-      Refatoração e modernização do front-end, unificando e padronizando
-      componentes reutilizáveis para maior manutenibilidade e
-      escalabilidade.
-    </li>
-    <li>
-      Uso diário de ferramentas de IA no ciclo de desenvolvimento de novas
-      funcionalidades e melhorias.
-    </li>
-  </ul>
-</div>
 
-<div class="p-5 bg-secondary rounded-xl mt-3 relative">
-  <div class="flex justify-between">
-    <div class="grow">
-      <h3 class="text-xl">Desenvolvedor Full Stack Pleno</h3>
-      <h4 class="opacity-60 text-xs">Allcom Telecom</h4>
-    </div>
-    <div class="text-xs">2024 ——— 2025</div>
-  </div>
-  <ul class="opacity-70 mt-3 text-sm list-disc list-inside space-y-1">
-    <li>
-      Desenvolvimento de APIs e integrações entre sistemas com PHP/Laravel,
-      PostgreSQL e MySQL, na equipe de Pesquisa e Desenvolvimento.
-    </li>
-    <li>
-      Construção de interfaces responsivas para soluções internas e
-      externas com React e TypeScript.
-    </li>
-    <li>
-      Tecnologias: PHP, Laravel, Node.js, Python, React, TypeScript,
-      PostgreSQL, MySQL e Docker.
-    </li>
-  </ul>
-</div>
-
-<div class="p-5 bg-secondary rounded-xl mt-3 relative">
-  <div class="flex justify-between">
-    <div class="grow">
-      <h3 class="text-xl">Desenvolvedor Front-end Júnior</h3>
-      <h4 class="opacity-60 text-xs">Agência Alldigital</h4>
-    </div>
-    <div class="text-xs">2022 ——— 2024</div>
-  </div>
-  <ul class="opacity-70 mt-3 text-sm list-disc list-inside space-y-1">
-    <li>
-      Desenvolvimento de páginas web responsivas e dinâmicas com HTML5,
-      CSS3, JavaScript e Bootstrap.
-    </li>
-    <li>
-      Implementação de layouts modernos com compatibilidade cross-browser
-      entre dispositivos e navegadores.
-    </li>
-    <li>
-      Foco em desempenho, acessibilidade e usabilidade das páginas
-      entregues.
-    </li>
-  </ul>
-</div>
+  <ol class="relative mt-10 space-y-8 border-l border-border pl-6 md:pl-8">
+    {
+      roles.map((role) => (
+        <li class="reveal relative">
+          <span
+            class="absolute top-1.5 -left-[1.7rem] h-3 w-3 rounded-full border border-accent bg-background md:-left-[2.2rem]"
+            aria-hidden="true"
+          />
+          <div class="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
+            <div>
+              <h3 class="font-display text-xl md:text-2xl">{role.title}</h3>
+              <p class="mt-1 text-sm text-accent-link">{role.company}</p>
+            </div>
+            <p class="text-sm text-muted-foreground">{role.period}</p>
+          </div>
+          <ul class="mt-4 space-y-2 text-sm leading-relaxed text-muted-foreground">
+            {role.points.map((point) => (
+              <li>{point}</li>
+            ))}
+          </ul>
+          <ul class="mt-5 flex flex-wrap gap-2">
+            {role.stack.map((tech) => (
+              <li class="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">
+                {tech}
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))
+    }
+  </ol>
+</section>
